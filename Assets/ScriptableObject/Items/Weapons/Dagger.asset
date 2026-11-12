@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3acbc7cc02c05d4439044208d3314a7e, type: 3}
   m_Name: Dagger
   m_EditorClassIdentifier: Assembly-CSharp::SO_Item
-  itemName: Knif
-  ImageItem: {fileID: 21300000, guid: 8631d7ad672989240a5b115fe72f2556, type: 3}
+  itemName: Emerald Blad
+  ImageItem: {fileID: 21300000, guid: 0bf3959f0a5b6954eb67d961b46f9fe4, type: 3}
   typeItem: 0

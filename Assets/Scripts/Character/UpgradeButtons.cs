@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class UpgradeButtons : MonoBehaviour
 {
-    public typeUpgrade upgrade; 
+    public typeUpgrade upgrade;
+    [SerializeField] private Monster monster;
+
     private void Update()
     {
         
@@ -31,6 +33,33 @@ public class UpgradeButtons : MonoBehaviour
         }
 
     }
+
+
+    public bool buttonMaxUpgrade()
+    {
+        if (!Buy()) return false;
+        switch (upgrade)
+        {
+            case typeUpgrade.damage:
+                LudekManager.instance.character.damage += 0.25;
+                break;
+            case typeUpgrade.wisdom:
+                LudekManager.instance.character.wisdom += 0.25;
+                break;
+            case typeUpgrade.luck:
+                LudekManager.instance.character.luck += 0.25;
+                break;
+            case typeUpgrade.lethality:
+                LudekManager.instance.character.lethality += 0.25;
+                break;
+            case typeUpgrade.inteligence:
+                LudekManager.instance.character.inteligence += 0.25;
+                break;
+        }
+        return true;
+    }
+
+
     private bool Buy() 
     {
         double price = CostToBuy();
@@ -48,7 +77,16 @@ public class UpgradeButtons : MonoBehaviour
         
     }
 
-    public double TakeStat() 
+    public void BuyMax()
+    {
+        while (true)
+        {
+            if (!buttonMaxUpgrade()) break;
+        }
+    }
+
+
+    public double TakeStat()
     {
         switch (upgrade)
         {
@@ -62,6 +100,23 @@ public class UpgradeButtons : MonoBehaviour
                 return LudekManager.instance.character.lethality;
             case typeUpgrade.inteligence:
                 return LudekManager.instance.character.inteligence;
+        }
+        return 0;
+    }
+    public double TakeStatWithItems()
+    {
+        switch (upgrade)
+        {
+            case typeUpgrade.damage:
+                return LudekManager.instance.character.damage + monster.getWeaponStats();
+            case typeUpgrade.wisdom:
+                return LudekManager.instance.character.wisdom + monster.getLeggingsStats();
+            case typeUpgrade.luck:
+                return LudekManager.instance.character.luck;
+            case typeUpgrade.lethality:
+                return LudekManager.instance.character.lethality + monster.getChestplateStats();
+            case typeUpgrade.inteligence:
+                return LudekManager.instance.character.inteligence + monster.getHelmetStats();
         }
         return 0;
     }

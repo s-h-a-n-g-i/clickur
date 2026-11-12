@@ -14,8 +14,8 @@ public class BankManager : MonoBehaviour
     void Update()
     {
         if(!gems)
-            tmp.text = string.Format(CultureInfo.InvariantCulture, "{0}", LudekManager.instance.character.money) + "$";
+            tmp.text = LudekManager.instance.character.money.ToString("F2") + "$";
         else
-            tmp.text = string.Format(CultureInfo.InvariantCulture, "{0}", LudekManager.instance.character.gems) + "₡";
+            tmp.text = LudekManager.instance.character.gems.ToString("F2") + "₡";
     }
 }

@@ -21,6 +21,7 @@ public enum ItemRarity
 
 public enum ItemType
 {
+    //sperma
     weapon,
     helmet,
     chestplate,

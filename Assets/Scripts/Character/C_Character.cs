@@ -14,11 +14,6 @@ public class C_Character
     public double wisdom = 0;
     public double luck = 0;
 
-    public double m_damage = 0;
-    public double m_lethality = 0;
-    public double m_inteligence = 0;
-    public double m_wisdom = 0;
-    public double m_luck = 0;
 
     public int ResetPoints = 0;
 }
